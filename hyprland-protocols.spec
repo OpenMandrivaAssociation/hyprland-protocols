@@ -8,7 +8,7 @@ License:        BSD-3-Clause
 URL:            https://github.com/hyprwm/hyprland-protocols
 Source0:        https://github.com/hyprwm/hyprland-protocols/archive/v%{version}/%{name}-%{version}.tar.gz
 
-BuildRequires:  meson
+BuildRequires:  cmake
 
 %description
 %{summary}.
@@ -23,11 +23,11 @@ Summary:        Wayland protocol extensions for Hyprland
 %autosetup -p1
 
 %build
-%meson
-%meson_build
+%cmake
+%make_build
 
 %install
-%meson_install
+%make_install -C build
 
 %files devel
 %license LICENSE
